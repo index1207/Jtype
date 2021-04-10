@@ -11,18 +11,18 @@ namespace Jtype {
 	using uint = unsigned int;
 
 	class String {
-	public: // 持失切
+	public:
 		String(void) = default;
 
 		String(const char* str) {
 			m_str = new char[strlen(str) + 1];
-			*m_str = *str;
+			strcpy(m_str, str);
 		}
 
 		~String(void) {
 			delete[] m_str;
 		}
-	public: // 五社球
+	public:
 		char charAt(uint idx) {
 			return m_str[idx];
 		}
@@ -45,9 +45,6 @@ namespace Jtype {
 	public:
 		operator const char*() {
 			return const_cast<const char*>(m_str);
-		}
-		void operator+(const char* adding_str) {
-			strcat(m_str, adding_str);
 		}
 	private:
 		char* m_str;
