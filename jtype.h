@@ -46,6 +46,9 @@ namespace Jtype {
 		operator const char*() {
 			return const_cast<const char*>(m_str);
 		}
+		void operator=(const char* s) {
+			strcpy(this->m_str, s);
+		}
 	private:
 		char* m_str;
 	};
