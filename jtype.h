@@ -4,54 +4,13 @@
 
 #include <iostream>
 
+#include "Jtype/String.h"
+
 using namespace std;
 
 namespace Jtype {
 	using byte = char;
 	using uint = unsigned int;
-
-	class String {
-	public:
-		String(void) = default;
-
-		String(const char* str) {
-			m_str = new char[strlen(str) + 1];
-			strcpy(m_str, str);
-		}
-
-		~String(void) {
-			delete[] m_str;
-		}
-	public:
-		char charAt(uint idx) {
-			return m_str[idx];
-		}
-
-		int codePointAt(uint idx) {
-			return static_cast<int>(this->m_str[idx]);
-		}
-
-		int codePointBefore(uint idx) {
-			codePointAt(idx - 1);
-		}
-
-		int codePointCount(uint beginIdx, uint endIdx) {
-
-		}
-
-		int compareTo(String& anotherString) {
-
-		}
-	public:
-		operator const char*() {
-			return const_cast<const char*>(m_str);
-		}
-		void operator=(const char* s) {
-			strcpy(this->m_str, s);
-		}
-	private:
-		char* m_str;
-	};
 
 	class Byte {
 	public:
