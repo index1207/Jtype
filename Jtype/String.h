@@ -83,10 +83,7 @@ namespace Jtype {
 			return m_str[idx];
 		}
 		void operator+=(String& rStr) {
-			strcat(this->m_str, rStr.m_str);
-		}
-		void operator+=(const char* rStr) {
-			size_t buf = strlen(rStr) + strlen(m_str) + 1;
+			size_t buf = rStr.length() + strlen(m_str) + 1;
 
 			char* tmp = (char*)realloc(m_str, buf);
 
@@ -95,6 +92,41 @@ namespace Jtype {
 			}
 
 			strcat_s(m_str, buf, rStr);
+		}
+		void operator+=(const char* str) {
+			size_t buf = strlen(str) + strlen(m_str) + 1;
+
+			char* tmp = (char*)realloc(m_str, buf);
+
+			if (tmp != nullptr) {
+				m_str = tmp;
+			}
+
+			strcat_s(m_str, buf, str);
+		}
+		const char* operator+(String& rStr) {
+			size_t buf = rStr.length() + strlen(m_str) + 1;
+
+			char* tmp = (char*)realloc(m_str, buf);
+
+			if (tmp != nullptr) {
+				m_str = tmp;
+			}
+
+			strcat_s(m_str, buf, rStr);
+			return m_str;
+		}
+		const char* operator+(const char* str) {
+			size_t buf = strlen(str) + strlen(m_str) + 1;
+
+			char* tmp = (char*)realloc(m_str, buf);
+
+			if (tmp != nullptr) {
+				m_str = tmp;
+			}
+
+			strcat_s(m_str, buf, str);
+			return m_str;
 		}
 	private:
 	
