@@ -12,7 +12,9 @@ namespace Jtype {
 	class String {
 	public:
 		String(void) {
-			m_str = new char;
+			const char* nul = "";
+			char* nnul = const_cast<char*>(nul);
+			m_str = new char(*nnul);
 			empty = true;
 		}
 

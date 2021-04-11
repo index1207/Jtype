@@ -14,8 +14,24 @@ namespace Jtype {
 
 	class Byte {
 	public:
+		Byte(void) {
+			m_byte = new __int8(0);
+		}
+		Byte(int num) {
+			m_byte = new __int8(num);
+		}
+		~Byte(void) {
+			delete m_byte;
+		}
+	public:
+		operator int() {
+			return *m_byte;
+		}
+	public:
 		static int MAX_VALUE;
 		static int MIN_VALUE;
+	private:
+		__int8* m_byte;
 	};
 	
 	class Short {
