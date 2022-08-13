@@ -1,6 +1,4 @@
 # Jtype
->       *made by index1207*
-
 
 ## 클래스
     1. String
